@@ -1,28 +1,26 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const shell = document.querySelector(".nav-shell");
-  const toggle = document.querySelector(".nav-toggle");
-  if (!shell || !toggle) return;
+const toggle = document.querySelector('.nav-toggle');
+const header = document.querySelector('.site-header');
 
+if (toggle && header) {
   const closeMenu = () => {
-    shell.classList.remove("nav-open");
-    toggle.setAttribute("aria-expanded", "false");
+    header.classList.remove('nav-open');
+    toggle.setAttribute('aria-expanded', 'false');
   };
 
-  toggle.addEventListener("click", (event) => {
-    event.stopPropagation();
-    const open = shell.classList.toggle("nav-open");
-    toggle.setAttribute("aria-expanded", String(open));
+  toggle.addEventListener('click', () => {
+    const open = header.classList.toggle('nav-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
-  document.querySelectorAll(".main-nav a").forEach((link) => {
-    link.addEventListener("click", closeMenu);
+  document.addEventListener('click', (event) => {
+    if (!header.contains(event.target)) closeMenu();
   });
 
-  document.addEventListener("click", (event) => {
-    if (!shell.contains(event.target)) closeMenu();
+  document.querySelectorAll('.nav-panel a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
   });
 
-  window.addEventListener("resize", () => {
+  window.addEventListener('resize', () => {
     if (window.innerWidth > 860) closeMenu();
   });
-});
+}
