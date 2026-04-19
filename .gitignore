@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+
+# Python (falls du später wieder Backend machst)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+
+# Node (falls du mal Tools nutzt)
+node_modules/
+dist/
+build/
+
+# Editor
+.vscode/
+.idea/
+
+# System Files
+Thumbs.db
