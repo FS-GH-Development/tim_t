@@ -6,6 +6,11 @@
 # Logs
 *.log
 
+# Archives / exports
+*.zip
+*.tar
+*.tar.gz
+
 # Python (falls du später wieder Backend machst)
 __pycache__/
 *.pyc
